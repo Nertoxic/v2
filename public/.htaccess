@@ -1,18 +1,13 @@
 <IfModule mod_rewrite.c>
-
-    # Settings
-    RewriteEngine on
+    RewriteEngine On
     RewriteBase /
 
-	# Default Routing
-    RewriteRule ^(.*)$ index.php?page=main/$1 [L]
-
-    # [!DONT REMOVE OTHERWHISE THE DASHBOARD AND FRAMEWORK WONT WORK!]
-    RewriteRule ^nic/setup?$ index.php?page=nic/setup [L]
-    RewriteRule ^nic/update?$ index.php?page=nic/update [L]
-    # [!DONT REMOVE OTHERWHISE THE DASHBOARD AND FRAMEWORK WONT WORK!]
-
+    # Route all requests to index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?page=$1 [L,QSA]
 </IfModule>
+
 <Files 403.shtml>
     order allow,deny
     allow from all

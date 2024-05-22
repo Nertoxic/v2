@@ -19,15 +19,18 @@ $page = $_GET['page'];
 # --------------------------------------------------------------------
 
 if (isset($_GET['page'])) {
+    $page = isset($_GET['page']) ? $_GET['page'] : 'index';
+    $filePath = BASE_PATH . 'pages/' . $page . '.php';
+    syslog(LOG_INFO, "Trying to include: " . $filePath);
 
-    // Load the html files
-    include_once BASE_PATH . 'pages/default/head_example.html';
-    include_once BASE_PATH . 'pages/default/header_example.html';
+    if (file_exists($filePath)) {
+        include_once BASE_PATH . 'pages/default/head_example.html';
+        include_once BASE_PATH . 'pages/default/header_example.html';
 
-    include_once BASE_PATH . "pages/" . $_GET['page'] . ".php";
+        include_once $filePath;
 
-    include_once BASE_PATH . 'pages/default/footer_example.html';
-
-} else {
-    $core->error("The router file couldnt be loaded check the .htaccess for errors.");
+        include_once BASE_PATH . 'pages/default/footer_example.html';
+    } else {
+        include BASE_PATH.'pages/nic/404.php';
+    }
 }
