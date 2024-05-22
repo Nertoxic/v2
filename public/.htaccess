@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+
+    # Settings
+    RewriteEngine on
+    RewriteBase /
+
+	# Default Routing
+    RewriteRule ^(.*)$ index.php?page=main/$1 [L]
+
+    # [!DONT REMOVE OTHERWHISE THE DASHBOARD AND FRAMEWORK WONT WORK!]
+    RewriteRule ^nic/setup?$ index.php?page=nic/setup [L]
+    RewriteRule ^nic/update?$ index.php?page=nic/update [L]
+    # [!DONT REMOVE OTHERWHISE THE DASHBOARD AND FRAMEWORK WONT WORK!]
+
+</IfModule>
+<Files 403.shtml>
+    order allow,deny
+    allow from all
+</Files>
