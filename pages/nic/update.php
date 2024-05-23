@@ -11,7 +11,7 @@
 $zip_url = "https://github.com/Nertoxic/v2/archive/refs/tags/" . $nicNextVersion . ".zip";
 
 $zip_file = BASE_PATH . basename($zip_url);
-$extracted_dir = BASE_PATH . "v2-" . $nicNextVersion;
+$extracted_dir = BASE_PATH . "v2-" . $nicNextVersionFile;
 
 $zip_content = @file_get_contents($zip_url);
 
