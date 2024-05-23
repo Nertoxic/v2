@@ -14,18 +14,20 @@ class core
 
     public function start($t) {
 
-        $nicVersion = "1.0.0"; # Changing this might break the framework!
+        require_once BASE_PATH.'nicVersion.php'; # Include Versioning file
 
-        self::validatePHPVersion();
+        self::validatePHPVersion(); # Check for PHP Support
 
         # If Dev mode is enabled >>>
         if($t == "dev") { error_reporting(E_ALL); }
         # If Dev mode is enabled <<<
 
-        require_once BASE_PATH . 'nic/modules/nicDB/code.php';
-        require_once BASE_PATH . 'nic/modules/nicAuth/code.php';
+        # MODULE LOADER >>>
+        require_once BASE_PATH . 'nic/modules/nicDB/code.php'; # Include NIC Core Functions
+        require_once BASE_PATH . 'nic/modules/nicAuth/code.php'; # Include NIC Auth Module
+        # MODULE LOADER <<<
 
-        require_once BASE_PATH . 'nicRouter.php';
+        require_once BASE_PATH . 'nicRouter.php'; # Include Routing
 
     }
 
