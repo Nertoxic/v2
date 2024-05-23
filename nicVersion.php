@@ -8,5 +8,5 @@
 #
 #
 
-$nicCurrentVersion = "v1.0.0"; # Changing this might break the framework!
-$nicNextVersion = "v1.0.1"; # Changing this will break the Updater
+$nicCurrentVersion = "v1.0.1"; # Changing this might break the framework!
+$nicNextVersion = "v1.0.2"; # Changing this will break the Updater
