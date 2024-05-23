@@ -17,7 +17,7 @@ $zip_content = @file_get_contents($zip_url);
 
 if ($zip_content === false) {
     $response = "Our Devs are slow again, there is currently no new update for you 🫤";
-    $core->debugMessage("pages/nic/update.php", "The newest Version is not published yet", false);
+    self::debugMessage("pages/nic/update.php", "The newest Version is not published yet", false);
     include_once BASE_PATH . "pages/nic/templates/updater.php"; # Load the HTML of the Updater file
     exit;
 }
@@ -37,11 +37,11 @@ if (file_exists($zip_file)) {
         $response = "The Update has been installed successfully and an alien has resetted the nertoxic code 🛸";
     } else {
         $response = "There was an error while installing the newest update!";
-        $core->debugMessage("pages/nic/update.php", "Error while unzipping the update", false);
+        self::debugMessage("pages/nic/update.php", "Error while unzipping the update", false);
     }
 } else {
     $response = "There was an error while downloading the newest update!";
-    $core->debugMessage("pages/nic/update.php", "Error while downloading the update", false);
+    self::debugMessage("pages/nic/update.php", "Error while downloading the update", false);
 }
 
 function recursiveCopy($source, $destination) {
