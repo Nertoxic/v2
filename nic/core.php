@@ -19,7 +19,10 @@ class core
         self::validatePHPVersion(); # Check for PHP Support
 
         # If Dev mode is enabled >>>
-        if($t == "dev") { error_reporting(E_ALL); }
+        if($t == "dev") {
+            error_reporting(E_ALL);
+            self::consoleDebugger(true);
+        }
         # If Dev mode is enabled <<<
 
         # MODULE LOADER >>>
@@ -41,6 +44,44 @@ class core
 
         if (version_compare(PHP_VERSION, 8.2, '<')) {
             self::error("The PHP Version you are using is no longer supported");
+        }
+
+    }
+
+    var $consoleDebugger;
+    public function consoleDebugger($enabled) {
+
+        if($enabled) {
+            $this->consoleDebugger = true;
+
+            echo "<script>console.log('--------------------- [NERTOXIC 🦥]');</script>";
+            echo "<script>console.log('');</script>";
+            echo "<script>console.log('Nertoxic debugger is running 🦥');</script>";
+            echo "<script>console.log('');</script>";
+            echo "<script>console.log('--------------------- [NERTOXIC 🦥]');</script>";
+        } else {
+            $this->consoleDebugger = false;
+        }
+
+    }
+
+    public function debugMessage($file, $message, $critical) {
+
+        if($this->consoleDebugger) {
+
+            echo "<script>console.log('--------------------- [NERTOXIC 🦥]');</script>";
+            echo "<script>console.log('');</script>";
+            echo "<script>console.log('❗️ ERROR CATCHED ❗');</script>";
+            echo "<script>console.log('File: ".$file."');</script>";
+            echo "<script>console.error('Message: ".$message."');</script>";
+            echo "<script>console.log('');</script>";
+            echo "<script>console.log('--------------------- [NERTOXIC 🦥]');</script>";
+
+            if($critical) {
+                include BASE_PATH.'pages/nic/500.php';
+                die();
+            }
+
         }
 
     }
