@@ -26,8 +26,9 @@ class core
         # If Dev mode is enabled <<<
 
         # MODULE LOADER >>>
-        require_once BASE_PATH . 'nic/modules/nicDB/code.php'; # Include NIC Core Functions
-        require_once BASE_PATH . 'nic/modules/nicAuth/code.php'; # Include NIC Auth Module
+        require_once BASE_PATH . 'nic/modules/nicDB/code.php';
+        require_once BASE_PATH . 'nic/modules/nicAuth/code.php';
+        require_once BASE_PATH . 'nic/modules/nicPageRestriction/code.php';
         # MODULE LOADER <<<
 
         require_once BASE_PATH . 'nicRouter.php'; # Include Routing
