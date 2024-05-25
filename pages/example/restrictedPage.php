@@ -8,16 +8,9 @@
 #
 #
 
-$pr = new pr();
-class pr
-{
+$pr->pageNeedLogin();
+?>
 
-    public function pageNeedLogin() {
-
-        if(empty($_COOKIE['sess'])) {
-            header("Location:".$GLOBALS['APP_URL']);
-        }
-
-    }
-
-}
+<p>
+    This page is only visible to users, that are logged in into an active account.
+</p>

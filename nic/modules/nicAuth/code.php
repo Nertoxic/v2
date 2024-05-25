@@ -120,4 +120,32 @@ class auth extends mysql
 
     }
 
+    public function getSession() {
+
+        if(!empty($_COOKIE['sess'])) {
+            $sessionToken = $_COOKIE['sess'];
+            return $sessionToken;
+        }
+    }
+
+    public function getUser() {
+
+        $sessionToken = self::getSession();
+
+        if(!empty($sessionToken)) {
+            $GETUSER = self::db()->prepare("SELECT * FROM `users` WHERE `session` = :sessionToken");
+            $GETUSER->execute(array(":sessionToken" => $sessionToken));
+            while ($user = $GETUSER -> fetch(PDO::FETCH_ASSOC)) {
+
+                $this->username = $user['name'];
+
+            }
+
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
 }
