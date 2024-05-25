@@ -7,14 +7,11 @@
 # |_| \_|_____|_| \_\|_| \___/_/\_\___\____|
 #
 #
+// require_once '../../nicEnv.php'; # Cant test env on github
+require_once '../../nicRouter.php';
+require_once '../../nicVersion.php';
 
-define('BASE_PATH', __DIR__.'../../');
-
-// require_once BASE_PATH . 'nicEnv.php'; # Cant test env on github
-require_once BASE_PATH . 'nicRouter.php';
-require_once BASE_PATH . 'nicVersion.php';
-
-require_once BASE_PATH . 'nic/core.php';
-require_once BASE_PATH . 'nic/modules/nicAuth/code.php';
-// require_once BASE_PATH . 'nic/modules/nicAuth/code.php'; # Cant test db on github
-require_once BASE_PATH . 'nic/modules/nicPageRestriction.php';
+require_once '../../nic/core.php';
+require_once '../../nic/modules/nicAuth/code.php';
+// require_once '../../nic/modules/nicAuth/code.php'; # Cant test db on github
+require_once '../../nic/modules/nicPageRestriction/code.php';
