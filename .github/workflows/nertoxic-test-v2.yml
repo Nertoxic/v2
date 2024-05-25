@@ -33,5 +33,5 @@ jobs:
       run: composer update
 
     - name: Run PHP Test
-      working-directory: public/
-      run: php index.php
+      working-directory: public/test/
+      run: php framework.php
