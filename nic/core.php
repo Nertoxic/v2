@@ -31,6 +31,10 @@ class core
         require_once BASE_PATH . 'nic/modules/nicPageRestriction/code.php';
         # MODULE LOADER <<<
 
+        # LOAD HANDLER >>>
+        require_once BASE_PATH . 'nic/handler/errorHandler.php';
+        # LOAD HANDLER <<<
+
         require_once BASE_PATH . 'nicRouter.php'; # Include Routing
 
     }
