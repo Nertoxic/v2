@@ -78,13 +78,20 @@ class core
 
             echo "<script>console.log('--------------------- [NERTOXIC 🦥]');</script>";
             echo "<script>console.log('');</script>";
-            echo "<script>console.log('❗️ ERROR CATCHED ❗');</script>";
+            echo "<script>console.log('🦥');</script>";
             echo "<script>console.log('File: ".$file."');</script>";
-            echo "<script>console.error('Message: ".$message."');</script>";
+            echo "<script>console.log('Message: ".$message."');</script>";
             echo "<script>console.log('');</script>";
             echo "<script>console.log('--------------------- [NERTOXIC 🦥]');</script>";
 
             if($critical) {
+                echo "<script>console.log('--------------------- [NERTOXIC 🦥]');</script>";
+                echo "<script>console.log('');</script>";
+                echo "<script>console.log('❗️ ERROR CATCHED ❗');</script>";
+                echo "<script>console.log('File: ".$file."');</script>";
+                echo "<script>console.error('Message: ".$message."');</script>";
+                echo "<script>console.log('');</script>";
+                echo "<script>console.log('--------------------- [NERTOXIC 🦥]');</script>";
                 include BASE_PATH.'pages/nic/500.php';
                 die();
             }
