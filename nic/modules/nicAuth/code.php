@@ -132,8 +132,7 @@ class auth extends mysql
         }
     }
 
-    public function getUser() {
-
+    public function getUser($data) {
         $sessionToken = self::getSession();
 
         if(!empty($sessionToken)) {
@@ -141,15 +140,10 @@ class auth extends mysql
             $GETUSER->execute(array(":sessionToken" => $sessionToken));
             while ($user = $GETUSER -> fetch(PDO::FETCH_ASSOC)) {
 
-                $this->username = $user['name'];
+                return $user[$data];
 
             }
-
-            return true;
-        } else {
-            return false;
         }
-
     }
 
 }
