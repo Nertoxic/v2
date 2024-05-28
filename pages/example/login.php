@@ -11,7 +11,7 @@
 
 
 <?php
-if(isset($_POST['register'])){
+if(isset($_POST['login'])){
     $auth->login($_POST['username'], $_POST['password']);
     $errorNessage = "test";
 }
@@ -25,7 +25,7 @@ if(isset($_POST['register'])){
         <input name="password" type="password" placeholder="Password"><br>
 
         <br>
-        <button name="register" type="submit">Login</button>
+        <button name="login" type="submit">Login</button>
 
     </form>
 </div>
