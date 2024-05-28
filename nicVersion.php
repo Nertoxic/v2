@@ -9,7 +9,7 @@
 #
 
 # Version System - Dont change anything here >>>
-$nicCurrentVersion = "v1.0.5";
-$nicNextVersion = "v1.0.6";
-$nicNextVersionFile = "1.0.6";
+$nicCurrentVersion = "v1.0.6";
+$nicNextVersion = "v1.0.7";
+$nicNextVersionFile = "1.0.7";
 # Version System - Dont change anything here <<<
