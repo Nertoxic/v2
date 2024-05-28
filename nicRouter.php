@@ -24,22 +24,22 @@ if (isset($_GET['page'])) {
     syslog(LOG_INFO, "Trying to include: " . $filePath);
 
     if (file_exists($filePath)) {
-        include_once BASE_PATH . 'pages/default/head_example.html';
-        include_once BASE_PATH . 'pages/default/header_example.html';
+        include_once BASE_PATH . 'pages/default/head.html';
+        include_once BASE_PATH . 'pages/default/header.html';
 
         include_once $filePath;
 
-        include_once BASE_PATH . 'pages/default/footer_example.html';
+        include_once BASE_PATH . 'pages/default/footer.html';
     } else {
         include BASE_PATH.'pages/nic/404.php';
     }
 }
 
 if(empty($_GET['page'])) {
-    include_once BASE_PATH . 'pages/default/head_example.html';
-    include_once BASE_PATH . 'pages/default/header_example.html';
+    include_once BASE_PATH . 'pages/default/head.html';
+    include_once BASE_PATH . 'pages/default/header.html';
 
     include_once BASE_PATH . 'pages/index.php';
 
-    include_once BASE_PATH . 'pages/default/footer_example.html';
+    include_once BASE_PATH . 'pages/default/footer.html';
 }
