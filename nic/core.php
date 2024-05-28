@@ -18,12 +18,10 @@ class core
 
         self::validatePHPVersion(); # Check for PHP Support
 
-        # If Dev mode is enabled >>>
         if($t == "dev") {
             error_reporting(E_ALL);
             self::consoleDebugger(true);
         }
-        # If Dev mode is enabled <<<
 
         # MODULE LOADER >>>
         require_once BASE_PATH . 'nic/modules/nicDB/code.php';
@@ -35,7 +33,11 @@ class core
         require_once BASE_PATH . 'nic/handler/errorHandler.php';
         # LOAD HANDLER <<<
 
-        require_once BASE_PATH . 'nicRouter.php'; # Include Routing
+        if($t == "dev") {
+            require_once BASE_PATH . 'nic/dev/router.php';
+        } else {
+            require_once BASE_PATH . 'nicRouter.php';
+        }
 
     }
 
