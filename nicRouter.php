@@ -34,3 +34,12 @@ if (isset($_GET['page'])) {
         include BASE_PATH.'pages/nic/404.php';
     }
 }
+
+if(empty($_GET['page'])) {
+    include_once BASE_PATH . 'pages/default/head_example.html';
+    include_once BASE_PATH . 'pages/default/header_example.html';
+
+    include_once BASE_PATH . 'pages/index.php';
+
+    include_once BASE_PATH . 'pages/default/footer_example.html';
+}
