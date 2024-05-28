@@ -12,7 +12,7 @@ $auth = new auth();
 class auth extends mysql
 {
 
-    public function register($username, $email, $firstname, $lastname, $city, $street, $postcode, $password, $password_repeat)
+    public function register($username, $email, $firstname, $lastname, $city, $street, $street_number, $postcode, $password, $password_repeat)
     {
 
         // Setup variables
@@ -61,6 +61,7 @@ class auth extends mysql
                     `lastname` = :lastname,
                     `city` = :city,
                     `street` = :street,
+                    `street_number` = :street_number,
                     `postcode` = :postcode,
                     `password` = :password
             ");
@@ -71,6 +72,7 @@ class auth extends mysql
                 ":lastname" => $lastname,
                 ":city" => $city,
                 ":street" => $street,
+                ":street_number" => $street_number,
                 ":postcode" => $postcode,
                 ":password" => $password_hashed,
             ));

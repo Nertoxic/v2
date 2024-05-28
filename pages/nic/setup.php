@@ -16,6 +16,7 @@ $mysql->createTable('users', [
     'firstname VARCHAR(100) NULL',
     'lastname VARCHAR(100) NULL',
     'street VARCHAR(100) NULL',
+    'street_number VARCHAR(100) NULL',
     'city VARCHAR(100) NULL',
     'postcode VARCHAR(100) NULL',
     'password VARCHAR(255) NOT NULL',
