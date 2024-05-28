@@ -21,4 +21,4 @@ define('MODULE_PATH', __DIR__.'/nic/modules/');
 require_once BASE_PATH . 'nicEnv.php';
 require_once BASE_PATH . 'nic/core.php';
 
-$core->start($APP_MODE); # Disable dev mode if u finished development (change to "prod")
+$core->start("dev"); # Disable dev mode if u finished development (change to "prod")
