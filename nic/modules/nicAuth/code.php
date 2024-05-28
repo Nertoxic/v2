@@ -17,6 +17,7 @@ class auth extends mysql
 
         // Setup variables
         $registerSuccess = true;
+        global $errorMessage;
 
         // Check if username is used >>>
         $USED_USERNAME = self::db()->prepare("SELECT * FROM `users` WHERE `username` = :username");
@@ -26,7 +27,7 @@ class auth extends mysql
 
         if(!$USED_USERNAME->rowCount() == NULL) {
             $registerSuccess = false;
-            $registerMessage = "Username is already in use";
+            $errorMessage = "Username is already in use";
         }
         // Check if username is used <<<
 
@@ -38,14 +39,14 @@ class auth extends mysql
 
         if(!$USED_MAIL->rowCount() == NULL) {
             $registerSuccess = false;
-            $registerMessage = "E-Mail is already in use";
+            $errorMessage = "E-Mail is already in use";
         }
         // Check if mail is used <<<
 
         // Check password matching >>>
         if(!$password == $password_repeat) {
             $registerSuccess = false;
-            $registerMessage = "Password does not match";
+            $errorMessage = "Password does not match";
         }
         // Check password matching <<<
 
@@ -81,6 +82,7 @@ class auth extends mysql
 
         // Setup variables
         $loginSuccess = true;
+        global $errorMessage;
 
         // Validate Password >>>
         $VALPASSWORD = self::db()->prepare("SELECT * FROM `users` WHERE `username` = :username");
@@ -89,7 +91,7 @@ class auth extends mysql
 
             if(!password_verify($password, $user["password"])) {
                 $loginSuccess = false;
-                $loginFeedback = "The password is not correct";
+                $errorMessage = "The password is not correct";
             }
 
         }
@@ -97,7 +99,7 @@ class auth extends mysql
 
         if($VALPASSWORD->rowCount() == NULL) {
             $loginSuccess = false;
-            $loginFeedback = "The user doesnt exist";
+            $errorMessage = "The user doesnt exist";
         }
 
         if($loginSuccess == true) {
@@ -116,6 +118,34 @@ class auth extends mysql
             setcookie('sess', $sessiontoken, time()+'864000', '/');
             header("Location:".$GLOBALS['APP_URL']);
 
+        }
+
+    }
+
+    public function getSession() {
+
+        if(!empty($_COOKIE['sess'])) {
+            $sessionToken = $_COOKIE['sess'];
+            return $sessionToken;
+        }
+    }
+
+    public function getUser() {
+
+        $sessionToken = self::getSession();
+
+        if(!empty($sessionToken)) {
+            $GETUSER = self::db()->prepare("SELECT * FROM `users` WHERE `session` = :sessionToken");
+            $GETUSER->execute(array(":sessionToken" => $sessionToken));
+            while ($user = $GETUSER -> fetch(PDO::FETCH_ASSOC)) {
+
+                $this->username = $user['name'];
+
+            }
+
+            return true;
+        } else {
+            return false;
         }
 
     }

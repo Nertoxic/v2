@@ -13,10 +13,13 @@
 <?php
 if(isset($_POST['register'])){
     $auth->login($_POST['username'], $_POST['password']);
+    $errorNessage = "test";
 }
 ?>
 <div>
     <form method="POST">
+
+        <h1><?= $error->get(); ?></h1>
 
         <input name="username" type="text" placeholder="Username"><br>
         <input name="password" type="password" placeholder="Password"><br>

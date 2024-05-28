@@ -8,8 +8,9 @@
 #
 #
 
-# Version System - Dont change anything here >>>
-$nicCurrentVersion = "v1.0.4";
-$nicNextVersion = "v1.0.5";
-$nicNextVersionFile = "1.0.5";
-# Version System - Dont change anything here <<<
+$pr->pageNeedLogin();
+?>
+
+<p>
+    This page is only visible to users, that are logged in into an active account.
+</p>

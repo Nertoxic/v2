@@ -8,11 +8,15 @@
 #
 #
 
-$page = new page();
-class page
+$pr = new pr();
+class pr
 {
 
-    public function need($type) {
+    public function pageNeedLogin() {
+
+        if(empty($_COOKIE['sess'])) {
+            header("Location:".$GLOBALS['APP_URL']);
+        }
 
     }
 
