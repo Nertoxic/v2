@@ -14,7 +14,7 @@ class errorHandler
 
     public function get(){
 
-        if(!empty($GLOBALS['errorNessage'])) {
+        if(!empty($GLOBALS['errorMessage'])) {
             return $GLOBALS['errorMessage'];
         }
 
