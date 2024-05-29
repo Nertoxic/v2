@@ -8,10 +8,30 @@
 #
 #
 
-$zip_url = "https://github.com/Nertoxic/v2/archive/refs/tags/" . $nicNextVersion . ".zip";
+// GitHub-API-URL für das neueste Release
+$apiUrl = "https://api.github.com/repos/Nertoxic/v2/releases/latest";
+
+// cURL Initialisieren
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $apiUrl);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_USERAGENT, 'PHP');
+
+// API Antwort
+$response = curl_exec($ch);
+curl_close($ch);
+
+// JSON Antwort dekodieren
+$release = json_decode($response, true);
+
+// URL zur ZIP-Datei des neuesten Releases
+if (isset($release['tag_name'])) {
+    $tag = $release['tag_name'];
+    $zip_url = "https://github.com/Nertoxic/v2/archive/refs/tags/$tag.zip";
+}
 
 $zip_file = BASE_PATH . basename($zip_url);
-$extracted_dir = BASE_PATH . "v2-" . $nicNextVersionFile;
+$extracted_dir = BASE_PATH . "v2-" . str_replace("v", "", $tag);
 
 $zip_content = @file_get_contents($zip_url);
 
