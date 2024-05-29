@@ -9,9 +9,9 @@
 #
 
 if(self::getRequestedSite() == "example/login") {
-    $ph->setName("Login");
+    $ph->setName("Login - " . $GLOBALS['APP_NAME']);
 }
 
 if(self::getRequestedSite() == "example/register") {
-    $ph->setName("Register");
+    $ph->setName("Register - " . $GLOBALS['APP_NAME']);
 }

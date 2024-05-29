@@ -31,7 +31,7 @@ class core
 
         # LOAD HANDLER >>>
         require_once BASE_PATH . 'nic/handler/errorHandler.php';
-        require_once BASE_PATH . 'nic/handler/pageHandler.php'; $ph->setName("Name");
+        require_once BASE_PATH . 'nic/handler/pageHandler.php'; $ph->setName("Name | " . $GLOBALS['APP_NAME']);
         # LOAD HANDLER <<<
 
         # LOAD APP FILES >>>

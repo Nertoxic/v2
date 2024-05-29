@@ -14,7 +14,7 @@ class pageHandler
 
     var $name;
     public function setName($name) {
-        $this->name = $name . ' | ' . $GLOBALS['APP_NAME'];
+        $this->name = $name;
     }
 
 }
