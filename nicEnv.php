@@ -11,7 +11,7 @@
 $env = parse_ini_file('.env');
 
 if ($env === false) {
-    //$core->error("The .env file could not be loaded.");
+    $core->debugMessage("nicEnv.php", "The .env file could not be loaded.", true);
 } else {
     // APP Settings
     $APP_NAME = $env['APP_NAME'];
