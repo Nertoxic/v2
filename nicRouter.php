@@ -18,8 +18,6 @@ if(empty($_GET['page'])){
     $page = $_GET['page'];
 }
 
-$ph->setName($page);
-
 $filePath = BASE_PATH . 'pages/' . $page . '.php';
 syslog(LOG_INFO, "Trying to include: " . $filePath);
 

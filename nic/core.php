@@ -31,8 +31,16 @@ class core
 
         # LOAD HANDLER >>>
         require_once BASE_PATH . 'nic/handler/errorHandler.php';
-        require_once BASE_PATH . 'nic/handler/pageHandler.php';
+        require_once BASE_PATH . 'nic/handler/pageHandler.php'; $ph->setName("Name");
         # LOAD HANDLER <<<
+
+        # LOAD APP FILES >>>
+        if($t == "dev") {
+            require_once BASE_PATH . 'app/dev_load.php';
+        } else {
+            require_once BASE_PATH . 'app/load.php';
+        }
+        # LOAD APP FILES <<<
 
         if($t == "dev") {
             require_once BASE_PATH . 'nic/dev/router.php';
@@ -99,6 +107,10 @@ class core
 
         }
 
+    }
+
+    public function getRequestedSite() {
+        return $_GET['page'];
     }
 
 }

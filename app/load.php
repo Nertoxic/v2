@@ -8,13 +8,9 @@
 #
 #
 
-$ph = new pageHandler;
-class pageHandler
+foreach (glob(BASE_PATH.'app/self/*.php') as $filename)
 {
-
-    var $name;
-    public function setName($name) {
-        $this->name = $name . ' | ' . $GLOBALS['APP_NAME'];
+    if($filename != 'load.php'){
+        include_once $filename;
     }
-
 }

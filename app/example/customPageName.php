@@ -8,13 +8,10 @@
 #
 #
 
-$ph = new pageHandler;
-class pageHandler
-{
+if(self::getRequestedSite() == "example/login") {
+    $ph->setName("Login");
+}
 
-    var $name;
-    public function setName($name) {
-        $this->name = $name . ' | ' . $GLOBALS['APP_NAME'];
-    }
-
+if(self::getRequestedSite() == "example/register") {
+    $ph->setName("Register");
 }
