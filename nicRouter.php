@@ -18,16 +18,18 @@ if(empty($_GET['page'])){
     $page = $_GET['page'];
 }
 
+$ph->setName($page);
+
 $filePath = BASE_PATH . 'pages/' . $page . '.php';
 syslog(LOG_INFO, "Trying to include: " . $filePath);
 
 if (file_exists($filePath)) {
-    include_once BASE_PATH . 'pages/default/head.html';
-    include_once BASE_PATH . 'pages/default/header.html';
+    include_once BASE_PATH . 'pages/default/head.php';
+    include_once BASE_PATH . 'pages/default/header.php';
 
     include_once $filePath;
 
-    include_once BASE_PATH . 'pages/default/footer.html';
+    include_once BASE_PATH . 'pages/default/footer.php';
 } else {
     include BASE_PATH.'pages/nic/404.php';
 }

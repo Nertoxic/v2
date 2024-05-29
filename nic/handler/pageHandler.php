@@ -8,16 +8,13 @@
 #
 #
 
-$error = new errorHandler;
-class errorHandler
+$ph = new pageHandler;
+class pageHandler
 {
 
-    public function get(){
-
-        if(!empty($GLOBALS['errorNessage'])) {
-            return $GLOBALS['errorMessage'];
-        }
-
-    }
+    var $name;
+  public function setName($name) {
+      $this->name = $name . ' | ' . $GLOBALS['APP_NAME'];
+  }
 
 }

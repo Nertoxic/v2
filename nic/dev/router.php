@@ -17,17 +17,19 @@ if(empty($_GET['page'])){
     $page = $_GET['page'];
 }
 
+$ph->setName($page);
+
 $filePath = BASE_PATH . 'pages/' . $page . '.php';
 syslog(LOG_INFO, "Trying to include: " . $filePath);
 self::debugMessage("nic/dev/router.php", "Trying to include: " . $filePath, false);
 
 if (file_exists($filePath)) {
-    include_once BASE_PATH . 'pages/default/head_example.html';
-    include_once BASE_PATH . 'pages/default/header_example.html';
+    include_once BASE_PATH . 'pages/default/head_example.php';
+    include_once BASE_PATH . 'pages/default/header_example.php';
 
     include_once $filePath;
 
-    include_once BASE_PATH . 'pages/default/footer_example.html';
+    include_once BASE_PATH . 'pages/default/footer_example.php';
 } else {
     include BASE_PATH.'pages/nic/404.php';
 }

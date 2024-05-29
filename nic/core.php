@@ -31,6 +31,7 @@ class core
 
         # LOAD HANDLER >>>
         require_once BASE_PATH . 'nic/handler/errorHandler.php';
+        require_once BASE_PATH . 'nic/handler/pageHandler.php';
         # LOAD HANDLER <<<
 
         if($t == "dev") {
