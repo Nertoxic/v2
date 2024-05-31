@@ -14,6 +14,7 @@ if ($env === false) {
     $core->debugMessage("nicEnv.php", "The .env file could not be loaded.", true);
 } else {
     // APP Settings
+    $APP_TYPE = $env['APP_TYPE'];
     $APP_NAME = $env['APP_NAME'];
     $APP_URL = $env['APP_URL'];
     $APP_LOGO = $env['APP_LOGO'];

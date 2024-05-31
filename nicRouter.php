@@ -12,12 +12,6 @@
 # Start loading called pages
 # --------------------------------------------------------------------
 
-if(empty($_GET['page'])){
-    $page = 'index';
-} else {
-    $page = $_GET['page'];
-}
-
 $filePath = BASE_PATH . 'pages/' . $page . '.php';
 syslog(LOG_INFO, "Trying to include: " . $filePath);
 
