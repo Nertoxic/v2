@@ -110,7 +110,7 @@ class core
     }
 
     public function getRequestedSite() {
-        return $_GET['page'];
+        return $GLOBALS['page'];
     }
 
 }
